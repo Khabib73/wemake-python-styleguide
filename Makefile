@@ -14,6 +14,10 @@ format: ## Format code with ruff
 	$(POETRY) run ruff format
 	$(POETRY) run ruff check
 
+.PHONY: type-check
+type-check: ## Run type checking (mypy)
+	$(POETRY) run mypy dotenv_linter
+
 .PHONY: lint
 lint: ## Run linting checks (ruff, flake8, mypy)
 	$(POETRY) run ruff check --exit-non-zero-on-fix
